@@ -1,0 +1,70 @@
+{
+  "name": "@bazulu1/n8n-nodes-topdesk",
+  "version": "0.1.0",
+  "description": "n8n nodes for TOPdesk: incidents with actions, attachments and time registration, changes, persons, operators, operator groups and branches, plus a trigger for new and changed incidents",
+  "license": "MIT",
+  "homepage": "https://github.com/bazn/n8n-nodes-topdesk#readme",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "topdesk",
+    "itsm",
+    "service-management",
+    "helpdesk",
+    "incident"
+  ],
+  "author": {
+    "name": "Dominik Vogt",
+    "email": "vogt.dom@gmail.com",
+    "url": "https://www.linkedin.com/in/dominik-vogt-2b070364/"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "build:watch": "tsc --watch",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "release": "n8n-node release",
+    "prepublishOnly": "npm run lint && npm test",
+    "test": "n8n-node build && node --test test/unit/*.test.cjs"
+  },
+  "files": [
+    "dist",
+    "!dist/tsconfig.tsbuildinfo",
+    "!dist/**/*.map"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": [
+      "dist/credentials/TopdeskApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/Topdesk/Topdesk.node.js",
+      "dist/nodes/TopdeskTrigger/TopdeskTrigger.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "*",
+    "eslint": "9.32.0",
+    "prettier": "3.6.2",
+    "release-it": "^21.1.0",
+    "typescript": "5.9.2"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bazn/n8n-nodes-topdesk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bazn/n8n-nodes-topdesk/issues"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
